@@ -9,16 +9,17 @@ const modelOrderDetail = require('../../models/E_payment/orderDetail');
 const modelBook = require('../../models/A_store/book');
 const nodemailer = require('nodemailer');
 const modelCartBook = require('../../models/D_action/cartBook');
+const env = require('../../env')
 
-const partnerCode = "MOMOIYF420211121";
-const accessKey = "hU9agyEwyvIf2AjK";
-const secretKey = "asIb5x2pjYn2FQYHQXv8PYBNWH4h4C9F";
+const partnerCode = env.partnerCode;
+const accessKey = env.accessKey;
+const secretKey = env.secretKey;
 
-var returnUrl = "http://localhost:4200/payment/"
+var returnUrl = env.hostFE + "/payment/"
 router.post('/', function (req, res) {
     const reqOrder = req.body.order
-    const redirectUrl = `http://localhost:3000/paymentMoMo/notifyPaymentMoMo`;
-    const ipnUrl = "http://localhost:3000/paymentMoMo/notifyUrl";
+    const redirectUrl = env.hostBE`/paymentMoMo/notifyPaymentMoMo`;
+    const ipnUrl = env.hostBE + "/paymentMoMo/notifyUrl";
     const requestType = "captureWallet"
     const orderInfo = "payment for book store";
     const requestId = partnerCode + new Date().getTime();
