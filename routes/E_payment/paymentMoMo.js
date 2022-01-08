@@ -294,8 +294,8 @@ let sendMail = (Order, mail) => {
 
             // true for 465, false for other ports
             auth: {
-                user: 'bookstoreute@gmail.com', // generated ethereal user
-                pass: 'mjzailslagceutte' // generated ethereal password
+                user: env.userSendMail, // generated ethereal user
+                pass: env.passSendMail // generated ethereal password
             },
             tls: {
                 rejectUnauthorized: false
@@ -304,7 +304,7 @@ let sendMail = (Order, mail) => {
 
         // setup email data with unicode symbols
         var mailOptions = {
-            from: 'bookstoreute@gmail.com', // sender address
+            from: env.userSendMail, // sender address
             to: mail.email, // list of receivers
             subject: 'Node Contact Request', // Subject line
             text: 'Hello world?', // plain text body
