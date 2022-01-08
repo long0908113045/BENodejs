@@ -53,7 +53,7 @@ const best_selling = require('./routes/I_best/best_Selling');
 // app.set('view engine', 'jade');
 
 app.use(cors({
-    origin: ['http://localhost:4200', 'http://192.168.1.16:4200'],
+    origin: ['http://localhost:4200', 'http://192.168.1.16:4200' , '*'],
     credentials: true
 }));
 app.use(bodyParser.json({ limit: '10mb', extended: true }));
