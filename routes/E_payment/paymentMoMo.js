@@ -18,7 +18,7 @@ const secretKey = env.secretKey;
 var returnUrl = env.hostFE + "/payment/"
 router.post('/', function (req, res) {
     const reqOrder = req.body.order
-    const redirectUrl = env.hostBE`/paymentMoMo/notifyPaymentMoMo`;
+    const redirectUrl = env.hostBE + `/paymentMoMo/notifyPaymentMoMo`;
     const ipnUrl = env.hostBE + "/paymentMoMo/notifyUrl";
     const requestType = "captureWallet"
     const orderInfo = "payment for book store";
