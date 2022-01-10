@@ -1,5 +1,5 @@
 
-const hostFE = "http://localhost:4200";
+const hostFE = "http://bookstoreute2.s3-website-us-east-1.amazonaws.com";
 const hostBE = "https://backend-bookshop-kltn.herokuapp.com";
 const partnerCode = "MOMOIYF420211121";
 const accessKey = "hU9agyEwyvIf2AjK";
