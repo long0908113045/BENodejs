@@ -418,17 +418,22 @@ async function getUserIDByCusID(req, res) {
 }
 //
 async function BestUser(data, order, userInOrder) {
+   
     let isExist1 = (data2, orderCheck, userInOrderCheck) => {
-        for (var key in data2) {
-            if (data2[key].userID == userInOrderCheck.userID) {
-                data2[key].totalPrice += orderCheck.totalPrice;
+        if(userInOrderCheck!=null && data2!= null){
+            for (var key in data2) {
+                if (data2[key].userID == userInOrderCheck.userID) {
+                    data2[key].totalPrice += orderCheck.totalPrice;
+                    return data2;
+                }
+            } {
+                var book = {}
+                book = { "userID": userInOrderCheck.userID, "totalPrice": orderCheck.totalPrice }
+                data2.push(book);
                 return data2;
             }
-        } {
-            var book = {}
-            book = { "userID": userInOrderCheck.userID, "totalPrice": orderCheck.totalPrice }
-            data2.push(book);
-            return data2;
+        }else{
+            return data2?data2:[];
         }
     }
     return isExist1(data, order, userInOrder);
@@ -456,8 +461,8 @@ router.get('/BestUser/:year', function(req, res) {
             return b.totalPrice - a.totalPrice;
         });
         //show khách hàng tiềm năng
-        res.json(arrayUserBuyBest[0]);
-        return
+        
+        return res.json(arrayUserBuyBest[0]);
     }
     run();
 });
